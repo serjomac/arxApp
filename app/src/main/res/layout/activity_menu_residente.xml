@@ -19,32 +19,35 @@
         android:rowCount="2">
 
         <ImageView
+            android:id="@+id/imgPagoAlicuota"
             android:layout_width="100px"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/pagos"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="150px"
-            android:layout_gravity="center_horizontal"/>
+            app:srcCompat="@drawable/pagos" />
 
         <ImageView
+            android:id="@+id/imgListaInvitados"
             android:layout_width="100px"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             app:srcCompat="@drawable/lista" />
 
 
-
         <ImageView
+            android:id="@+id/imgReservacionClub"
             android:layout_width="100px"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/club"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="150px"
-            android:layout_gravity="center_horizontal"/>
+            app:srcCompat="@drawable/club" />
 
         <ImageView
+            android:id="@+id/imgNotificaciones"
             android:layout_width="100px"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/notificaciones"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/notificaciones" />
 
     </GridLayout>
 

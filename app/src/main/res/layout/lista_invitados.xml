@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
 
     <Button
         android:id="@+id/btnAgregarInvitado"
@@ -12,7 +13,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="106dp"
         android:background="@drawable/boton_registro"
-        android:text="Agregar" />
+        android:text="Agregar"
+        android:layout_alignLeft="@+id/lblCedulaInvitado" />
 
     <Button
         android:id="@+id/btnVerLista"
@@ -23,7 +25,9 @@
         android:layout_marginStart="170dp"
         android:layout_marginBottom="104dp"
         android:background="@drawable/boton_registro"
-        android:text="Lista de invitados" />
+        android:text="Lista de invitados"
+        android:layout_alignLeft="@+id/lblCedulaInvitado"
+        android:layout_marginLeft="170dp" />
 
     <TextView
         android:id="@+id/lblNombreInvitado"
@@ -33,7 +37,8 @@
         android:layout_alignStart="@+id/textView2"
         android:layout_marginTop="115dp"
         android:text="@string/lblNombreCompleto"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_alignLeft="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
@@ -54,7 +59,9 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="211dp"
         android:text="@string/lblCedula"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="1dp" />
 
     <TextView
         android:id="@+id/lblPlacaInvitado"
@@ -65,7 +72,9 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="304dp"
         android:text="@string/lblPlacaInvitado"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="0dp" />
 
     <EditText
         android:id="@+id/txtCedulaInvitado"
@@ -75,7 +84,9 @@
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="0dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="0dp" />
 
     <EditText
         android:id="@+id/txtCedulaInvitado4"
@@ -86,7 +97,9 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="94dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="0dp" />
 
     <EditText
         android:id="@+id/txtNombreInvitado"
@@ -96,6 +109,8 @@
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="0dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="0dp" />
 
 </RelativeLayout>

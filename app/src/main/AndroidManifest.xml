@@ -38,6 +38,12 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".Lista_Invitados"
+
+            android:screenOrientation="portrait">
+        </activity>
+
 
 
 
