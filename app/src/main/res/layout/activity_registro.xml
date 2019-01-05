@@ -31,87 +31,98 @@
     <TextView
 
         android:id="@+id/lblNombre"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="35px"
-        android:layout_marginTop="30dp"
-        android:text="@string/lblNombre"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        />
+        android:layout_marginTop="30dp"
+        android:text="@string/lblNombreCompleto"
+        android:textSize="35px" />
 
     <EditText
+        android:id="@+id/txtNombreCompleto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
 
     <TextView
 
         android:id="@+id/lblApellido"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="35px"
-        android:layout_marginTop="15dp"
-        android:text="@string/lblApellido"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        />
-
-    <EditText
-        android:id="@+id/txtApellido"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
-    <TextView
-
-        android:id="@+id/lblUsuario"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="35px"
         android:layout_marginTop="15dp"
         android:text="@string/lblUsuario"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textSize="35px" />
 
     <EditText
         android:id="@+id/txtUsuario"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
+
     <TextView
 
-        android:id="@+id/lblCorreo"
-        android:layout_height="wrap_content"
+        android:id="@+id/lblUsuario"
         android:layout_width="wrap_content"
-        android:textSize="35px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:text="@string/lblCorreo"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textSize="35px" />
 
     <EditText
         android:id="@+id/txtCorreo"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:id="@+id/lblCodigoRegistro"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:textSize="35px"
-        android:layout_marginTop="15dp"
-        android:text="@string/lblCodigoRegistro"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+    <TextView
+
+        android:id="@+id/lblManzana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        />
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/lblManzana"
+        android:textSize="35px" />
 
     <EditText
-        android:id="@+id/txtCodigoRegistro"
-        android:layout_width="250dp"
+        android:id="@+id/txtManzana"
+        android:layout_width="80dp"
+        android:layout_marginLeft="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         />
+
+    <TextView
+        android:id="@+id/lblVilla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="200dp"
+        android:text="@string/lblVilla"
+        android:textSize="35px" />
+
+        <EditText
+            android:id="@+id/txtCodigoRegistro"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="0dp" />
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/btnIniciar2"
@@ -120,7 +131,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/boton_registro"
         android:text="@string/boton_regsitro" />
 

@@ -2,16 +2,30 @@
     <string name="app_name">arxapp</string>
     <string name="todo">TODO</string>
     <string name="perfil">Perfil</string>
-    <string name="lblNombre">Nombre</string>
-    <string name="lblApellido">Apellido</string>
+    <string name="lblNombreCompleto">Nombre Completo</string>
     <string name="lblUsuario">Usuario</string>
     <string name="garita">Garita</string>
     <string name="lblCorreo">Correo</string>
     <string name="lblContraseña">Contraseña</string>
-    <string name="lblCodigoRegistro">Código de registro</string>
+    <string name="lblManzana">Manzana</string>
+    <string name="lblVilla">Villa</string>
     <string name="boton_regsitro">Crear Cuenta</string>
     <string name="lblPlacaInvitado">Placa (opcional)</string>
     <string name="lblCedula">Cédula</string>
     <string name="lblNombreCompleto">Nombre completo</string>
+
+    <string-array name="ciudadelas">
+        <item>Vicrieel</item>
+        <item>La Joya</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+        <item>Vicrieel</item>
+    </string-array>
 
 </resources>

@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 public class Login extends AppCompatActivity {
+
+    private  Button btnIngresar2;
+    private  Button btnRegistrarse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button btnIngresar2 = (Button) findViewById(R.id.btnIniciar2);
+        btnIngresar2 = (Button) findViewById(R.id.btnIniciar2);
         btnIngresar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -21,5 +24,7 @@ public class Login extends AppCompatActivity {
                 startActivityForResult(intent2,0);
             }
         });
+
+
     }
 }
