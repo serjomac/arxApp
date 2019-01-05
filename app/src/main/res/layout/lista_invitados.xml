@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnAgregarInvitado"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lblCedulaInvitado"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="106dp"
+        android:background="@drawable/boton_registro"
+        android:text="Agregar" />
+
+    <Button
+        android:id="@+id/btnVerLista"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lblCedulaInvitado"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/boton_registro"
+        android:text="Lista de invitados" />
+
+    <TextView
+        android:id="@+id/lblNombreInvitado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="115dp"
+        android:text="@string/lblNombreCompleto"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Generar lista de invitados"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/lblCedulaInvitado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="211dp"
+        android:text="@string/lblCedula"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/lblPlacaInvitado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="304dp"
+        android:text="@string/lblPlacaInvitado"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/txtCedulaInvitado"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblCedulaInvitado"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginStart="0dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtCedulaInvitado4"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblCedulaInvitado"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="94dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtNombreInvitado"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblNombreInvitado"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginStart="0dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+</RelativeLayout>

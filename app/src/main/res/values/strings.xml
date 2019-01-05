@@ -10,5 +10,8 @@
     <string name="lblContraseña">Contraseña</string>
     <string name="lblCodigoRegistro">Código de registro</string>
     <string name="boton_regsitro">Crear Cuenta</string>
+    <string name="lblPlacaInvitado">Placa (opcional)</string>
+    <string name="lblCedula">Cédula</string>
+    <string name="lblNombreCompleto">Nombre completo</string>
 
 </resources>
