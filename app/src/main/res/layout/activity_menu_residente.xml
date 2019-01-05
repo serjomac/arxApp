@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1a">
+
+
+
+
+    <GridLayout
+        android:layout_width="600px"
+        android:layout_height="600px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="111dp"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pagos"
+            android:layout_marginLeft="150px"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/lista" />
+
+
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/club"
+            android:layout_marginLeft="150px"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/notificaciones"
+            android:layout_gravity="center_horizontal"/>
+
+    </GridLayout>
+
+</RelativeLayout>

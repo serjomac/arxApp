@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4ff">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnRegisrtarse"
+        android:layout_width="595px"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="224dp"
+        android:background="@drawable/boton_registro"
+        android:text="Registrarse" />
+
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="595px"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="135dp"
+        android:background="@drawable/boton_iniciar"
+        android:text="Iniciar Sesion"
+        android:textColor="#f4f4f4ff" />
+</RelativeLayout>

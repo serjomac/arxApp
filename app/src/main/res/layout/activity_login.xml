@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4ff"
+    tools:context="app.arxapp.jonathan.arxapp.MainActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/lblUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_alignStart="@+id/lblApellido"
+        android:layout_alignLeft="@+id/lblApellido"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="184dp"
+        android:text="Usuario"
+        android:textSize="35px" />
+
+    <EditText
+        android:id="@+id/txtUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+
+        android:layout_alignStart="@+id/lblUsuario"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="216dp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_alignLeft="@+id/lblUsuario" />
+
+    <TextView
+        android:id="@+id/lblApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignStart="@+id/txtCorreo"
+        android:layout_alignLeft="@+id/txtCorreo"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="282dp"
+        android:text="Contraseña"
+        android:textSize="35px" />
+
+
+    <EditText
+        android:id="@+id/txtCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="312dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnIniciar2"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="141dp"
+        android:text="Iniciar Sesion"
+        android:background="@drawable/boton_registro"/>
+
+    <Button
+        android:id="@+id/btnRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp"
+
+        android:text="Registrarse" />
+
+
+</RelativeLayout>
