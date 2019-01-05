@@ -41,8 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignStart="@+id/txtCorreo"
-        android:layout_alignLeft="@+id/txtCorreo"
+        android:layout_alignStart="@+id/txtManzana"
+        android:layout_alignLeft="@+id/txtManzana"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-2dp"
         android:layout_marginLeft="-2dp"
@@ -52,7 +52,7 @@
 
 
     <EditText
-        android:id="@+id/txtCorreo"
+        android:id="@+id/txtManzana"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
 
@@ -80,17 +80,6 @@
         android:layout_marginBottom="141dp"
         android:text="Iniciar Sesion"
         android:background="@drawable/boton_registro"/>
-
-    <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="77dp"
-        android:background=""
-
-        android:text="Registrarse" />
 
 
 </RelativeLayout>
