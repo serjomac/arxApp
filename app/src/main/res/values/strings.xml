@@ -12,6 +12,8 @@
     <string name="boton_regsitro">Crear Cuenta</string>
     <string name="lblPlacaInvitado">Placa (opcional)</string>
     <string name="lblCedula">Cédula</string>
+    <string name="facebook_app_id">2226635547655190</string>
+    <string name="fb_login_protocol_scheme">fb2226635547655190</string>
 
     <string-array name="ciudadelas">
         <item>Vicrieel</item>
