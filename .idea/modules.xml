@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyArxApp.iml" filepath="$PROJECT_DIR$/MyArxApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arxApp.iml" filepath="$PROJECT_DIR$/arxApp.iml" />
     </modules>
   </component>
 </project>

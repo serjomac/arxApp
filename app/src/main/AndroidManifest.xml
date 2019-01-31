@@ -17,35 +17,46 @@
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
         <activity android:name=".MainActivity" >
-
-        <activity android:name=".MainActivity">
-
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Registro"
-            android:screenOrientation="portrait" />
+
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:theme="@style/Theme.AppCompat.Light"
             android:name=".Menu_Residente"
             android:screenOrientation="portrait">
         </activity>
 
-
-            android:screenOrientation="portrait" />
-
         <activity
             android:name=".Login"
-            android:screenOrientation="portrait" />
+
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:name=".Lista_Invitados"
-            android:screenOrientation="portrait" />
-        <activity android:name=".activity_administracion_ciudadela_lista" />
-        <activity android:name=".activity_administracion_ciudadela"></activity>
+
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity_administracion_ciudadela"
+
+            android:screenOrientation="portrait">
+        </activity>
+
+
+
+
     </application>
 
 </manifest>

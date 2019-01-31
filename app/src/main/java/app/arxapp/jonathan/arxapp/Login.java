@@ -67,9 +67,9 @@ public class Login extends AppCompatActivity {
         btnIngresar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciarSesion();
-                //Intent intent2 = new Intent(v.getContext(), Menu_Residente.class);
-                //startActivityForResult(intent2,0);
+                //iniciarSesion();
+                Intent intent2 = new Intent(v.getContext(), activity_administracion_ciudadela.class);
+                startActivityForResult(intent2,0);
             }
         });
 
@@ -93,8 +93,7 @@ public class Login extends AppCompatActivity {
             public void onError(FacebookException error) {
                 Log.w("Login Facebook", "Facebook Login error: " + error.toString());
 
-                Intent intent2 = new Intent(v.getContext(), activity_administracion_ciudadela.class);
-                startActivityForResult(intent2,0);
+
 
             }
         });
