@@ -17,7 +17,7 @@ public class Incicar_Sesion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent2 = new Intent(v.getContext(), Menu_Residente.class);
+                Intent intent2 = new Intent(v.getContext(), activity_administracion_ciudadela.class);
                 startActivityForResult(intent2,0);
             }
         });

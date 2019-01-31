@@ -83,6 +83,7 @@ public class Login extends AppCompatActivity {
                 goHome();
             }
 
+
             @Override
             public void onCancel() {
                 Log.w(TAG, "Facebook Login Cancelado");
@@ -91,6 +92,10 @@ public class Login extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
                 Log.w("Login Facebook", "Facebook Login error: " + error.toString());
+
+                Intent intent2 = new Intent(v.getContext(), activity_administracion_ciudadela.class);
+                startActivityForResult(intent2,0);
+
             }
         });
     }
