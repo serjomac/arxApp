@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "37726169524",
+    "firebase_url": "https://arxapp-69920.firebaseio.com",
+    "project_id": "arxapp-69920",
+    "storage_bucket": "arxapp-69920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37726169524:android:411aa785b33af446",
+        "android_client_info": {
+          "package_name": "app.arxapp.jonathan.arxapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37726169524-0fb64r4216ig8dv3jgkcuma5f22vaa3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEkMjlU3SJOGBhnOY_YeYkn4NrF3tfUjA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
