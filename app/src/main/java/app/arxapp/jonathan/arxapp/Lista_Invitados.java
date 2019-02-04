@@ -1,7 +1,7 @@
 package app.arxapp.jonathan.arxapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,17 +11,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
+
 import java.util.Vector;
+
 
 public class Lista_Invitados extends AppCompatActivity {
 
-    String invitadoPorSesion;
     private static final String TAG = "ContainerActivity";
     private DatabaseReference invitados;
     String user;
@@ -29,7 +32,7 @@ public class Lista_Invitados extends AppCompatActivity {
     Button buttonAgregarInvitado, verListaInvitados;
     private FirebaseAuth firebaseAuth;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.lista_invitados);
@@ -65,25 +68,19 @@ public class Lista_Invitados extends AppCompatActivity {
                 invitados.child("ListaInvitados"+user).child("Invitados").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
                         Vector<String> jsonInvitados = new Vector<>();
                         Vector<Invitado> vectorInvitados = new Vector<>();
                         int contador =0;
                         //Lista_Invitados invitadoTmp = dataSnapshot.getValue(Lista_Invitados.class);
-
-
                         if(dataSnapshot.getValue() != null){
                             //Toast.makeText(Lista_Invitados.this, "d" , Toast.LENGTH_SHORT).show();
                             for (DataSnapshot child : dataSnapshot.getChildren()) {
                                 Invitado invitadoTmp = new Invitado();
-
-
-
                                 for (DataSnapshot subChild : child.getChildren()){
 
                                     jsonInvitados.add(subChild.getValue().toString());
 
-                                    //Log.w("json", tokenInvitado);
+                                    Log.w("json", jsonInvitados.get(contador));
                                     contador ++;
 
                                 }
@@ -98,8 +95,6 @@ public class Lista_Invitados extends AppCompatActivity {
                                 vectorInvitados.add(invitadoTmp);
                                 jsonInvitados.clear();
                                 contador=0;
-
-
                             }
 
 
@@ -107,8 +102,6 @@ public class Lista_Invitados extends AppCompatActivity {
 
 
                         }
-
-
 
                         for (Invitado invitado : vectorInvitados){
                             Log.w("InvitadorJson", invitado.getInvitadoId());
@@ -124,47 +117,6 @@ public class Lista_Invitados extends AppCompatActivity {
                         }
 
 
-                        //JSONObject json = invitadosData.getJSONObject(tokenInvitado);
-
-                        //Toast.makeText(Lista_Invitados.this, jsonInvitados , Toast.LENGTH_SHORT).show();
-                        /*
-                        try {
-                            //JSONObject jsnobject = new JSONObject(jsonInvitados);
-                            //JSONArray jsonArray = new JSONArray(jsonInvitados);
-
-                            //String idInvitadoTmp = invitados.child("ListaInvitados"+user).child("Invitados").child().getKey();
-                            //Toast.makeText(Lista_Invitados.this, idInvitadoTmp , Toast.LENGTH_SHORT).show();
-                            //JSONObject json = invitadosData.getJSONObject("ListaInvitados"+user).getJSONObject("Invitados");
-                           // JSONObject json = new JSONObject(invitadosData.toString());
-                            //Toast.makeText(Lista_Invitados.this, "Jalo!" , Toast.LENGTH_SHORT).show();
-                            //JSONObject mJsonObject = mJsonArray.getJSONObject(0);
-
-                           //String nombre = json.getString("manzana");
-                            String manzanaTmp = "";
-                            for (int i =0; i < jsonArray.length();i++){
-                                JSONObject obj = jsonArray.getJSONObject(i);
-                                if (obj.has("manzana")) {
-                                    manzanaTmp = obj.getString("manzana");
-
-                                }
-                                //Invitado invitadoTmp = new Invitado(invitadosData.getString("manzana"));
-                            }
-
-
-                            Toast.makeText(Lista_Invitados.this,  manzanaTmp  , Toast.LENGTH_SHORT).show();
-
-
-                        } catch (JSONException e) {
-                            Toast.makeText(Lista_Invitados.this, e.toString() , Toast.LENGTH_SHORT).show();
-                        }
-
-                    */
-
-
-                        //jsonInvitados = gson.toJson(Invitado.class);
-                        //gson.toJson(Invitado.class);
-
-
                     }
 
                     @Override
@@ -172,7 +124,13 @@ public class Lista_Invitados extends AppCompatActivity {
 
                     }
                 });
+                Intent intentListaInvitados = new Intent(v.getContext(), activity_administracion_ciudadela_lista.class);
+                startActivityForResult(intentListaInvitados, 0);
+
+
             }
+
+
         });
 
 
