@@ -48,8 +48,9 @@
 
             android:screenOrientation="portrait">
         </activity>
+
         <activity
-            android:name=".activity_administracion_ciudadela"
+            android:name=".activity_administracion_ciudadela_lista"
 
             android:screenOrientation="portrait">
         </activity>

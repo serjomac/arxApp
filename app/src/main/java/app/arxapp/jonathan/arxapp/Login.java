@@ -24,10 +24,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthActionCodeException;
-import com.google.firebase.auth.FirebaseAuthProvider;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Login extends AppCompatActivity {
@@ -63,15 +61,17 @@ public class Login extends AppCompatActivity {
             }
         };
 
-        btnIngresar2 = (Button) findViewById(R.id.btnIniciar2);
+        btnIngresar2 = findViewById(R.id.btnIniciar2);
         btnIngresar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //iniciarSesion();
-                Intent intent2 = new Intent(v.getContext(), activity_administracion_ciudadela.class);
+                Intent intent2 = new Intent(v.getContext(), Menu_Residente.class);
                 startActivityForResult(intent2,0);
             }
         });
+
+
 
         loginButtonFacebook = (LoginButton) findViewById(R.id.login_facebook);
         loginButtonFacebook.setReadPermissions(Arrays.asList("email"));
