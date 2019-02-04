@@ -10,49 +10,49 @@
 
 
     <GridLayout
-        android:layout_width="450dp"
+        android:layout_width="600dp"
         android:layout_height="300dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="90dp"
         android:columnCount="2"
         android:rowCount="2">
 
         <ImageView
             android:id="@+id/imgPagoAlicuota"
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="20dp"
-            app:srcCompat="@drawable/pagos" />
+            app:srcCompat="@drawable/pago" />
 
         <ImageView
             android:id="@+id/imgListaInvitados"
-            android:layout_width="65dp"
+            android:layout_width="95dp"
             android:layout_marginLeft="70dp"
-            android:layout_height="wrap_content"
+            android:layout_height="95dp"
             android:layout_gravity="center_horizontal"
             app:srcCompat="@drawable/lista" />
 
 
         <ImageView
             android:id="@+id/imgReservacionClub"
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            app:srcCompat="@drawable/club" />
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/reserva" />
 
         <ImageView
             android:id="@+id/imgNotificaciones"
-            android:layout_width="60dp"
+            android:layout_width="95dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="95dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/notificaciones" />
+            app:srcCompat="@drawable/noticias" />
 
     </GridLayout>
 

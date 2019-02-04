@@ -21,8 +21,8 @@
 
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="233dp"
-        android:text="Usuario"
+        android:layout_marginTop="213dp"
+        android:text="@string/lblCorreo"
         android:textSize="22dp" />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="265dp"
+        android:layout_marginTop="245dp"
         android:ems="15"
         android:inputType="text" />
 
@@ -47,10 +47,10 @@
         android:layout_alignStart="@+id/txtLoginClave"
         android:layout_alignLeft="@+id/txtLoginClave"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginLeft="-2dp"
-        android:layout_marginTop="331dp"
-        android:text="Contraseña"
+        android:layout_marginStart="-1dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="311dp"
+        android:text="@string/lblContraseña"
         android:textSize="22dp" />
 
 
@@ -60,30 +60,32 @@
         android:layout_height="45dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="361dp"
+        android:layout_marginTop="341dp"
         android:ems="15"
         android:inputType="textPassword" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="73dp"
+        android:layout_marginStart="-162dp"
+        android:layout_marginLeft="-162dp"
+        android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/lblApellido"
-        app:srcCompat="@drawable/logo"
-        android:layout_toRightOf="@+id/lblApellido" />
+        android:layout_toRightOf="@+id/lblApellido"
+        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/btnIniciar2"
-        android:layout_width="233dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="93dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/boton_registro"
         android:text="Iniciar Sesion"
-        android:textSize="21dp" />
+        android:textSize="19dp" />
 
     <com.facebook.login.widget.LoginButton
 
@@ -93,11 +95,24 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="-7dp"
         android:layout_marginLeft="-7dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="470dp"
         android:layout_marginBottom="30dp"
         android:layout_toEndOf="@+id/lblUsuario"
-        android:layout_toRightOf="@+id/lblUsuario"
-        />
+        android:layout_toRightOf="@+id/lblUsuario" />
 
+    <TextView
+        android:id="@+id/btnRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView5"
+        android:layout_alignRight="@+id/imageView5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/boton_sin_fondo"
+        android:text="@string/boton_regsitro"
+        android:textSize="18dp"
+        tools:ignore="RtlCompat" />
 
 </RelativeLayout>

@@ -4,17 +4,19 @@
     <string name="perfil">Perfil</string>
     <string name="lblNombreCompleto">Nombre Completo</string>
     <string name="lblUsuario">Usuario</string>
-    <string name="garita">Garita</string>
+    <string name="cerrarSesion">Cerrar Sesión</string>
     <string name="lblCorreo">Correo</string>
-    <string name="lblContraseña">Contraseña</string>
+    <string name="lblContraseña">Contraseña(Max 6 dígitos)</string>
     <string name="lblManzana">Manzana</string>
     <string name="lblVilla">Villa</string>
-    <string name="boton_regsitro">Crear Cuenta</string>
+    <string name="boton_regsitro">Registrarse</string>
     <string name="lblPlacaInvitado">Placa (opcional)</string>
     <string name="lblCedula">Cédula</string>
     <string name="facebook_app_id">2226635547655190</string>
     <string name="fb_login_protocol_scheme">fb2226635547655190</string>
-
+    <string name="enDesarrollo">En Desarrollo</string>
+    <string name="manzana">Manzana</string>
+    <string name="villa">Villa</string>
     <string-array name="ciudadelas">
         <item>Vicrieel</item>
         <item>La Joya</item>

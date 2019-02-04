@@ -5,7 +5,8 @@
         android:title="@string/perfil"
         android:icon="@drawable/logo"/>
 
-    <item android:id="@+id/garita"
-        android:title="@string/garita"
+
+    <item android:id="@+id/cerrarSesion"
+        android:title="@string/cerrarSesion"
         android:icon="@drawable/logo"/>
 </menu>
