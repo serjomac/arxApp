@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f4f4ff"
-    tools:context="app.arxapp.jonathan.arxapp.MainActivity"
+    tools:context="app.arxapp.jonathan.arxap.MainActivity"
     android:orientation="vertical">
 
 
@@ -93,12 +93,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="-7dp"
-        android:layout_marginLeft="-7dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="470dp"
         android:layout_marginBottom="30dp"
         android:layout_toEndOf="@+id/lblUsuario"
-        android:layout_toRightOf="@+id/lblUsuario" />
+        android:layout_toRightOf="@+id/lblUsuario"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/btnRegistro"

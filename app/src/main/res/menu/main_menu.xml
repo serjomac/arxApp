@@ -6,6 +6,12 @@
         android:icon="@drawable/logo"/>
 
 
+
+
+    <item android:id="@+id/politicas"
+        android:title="@string/politicas"
+        android:icon="@drawable/logo"/>
+
     <item android:id="@+id/cerrarSesion"
         android:title="@string/cerrarSesion"
         android:icon="@drawable/logo"/>
