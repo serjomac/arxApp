@@ -19,7 +19,9 @@ public class Usuario {
         this.villa = villa;
         this.clave = clave;
     }
+public  Usuario(){
 
+}
     public String getNombre() {
         return nombre;
     }

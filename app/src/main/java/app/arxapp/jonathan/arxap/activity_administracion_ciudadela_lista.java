@@ -1,10 +1,14 @@
 package app.arxapp.jonathan.arxap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,7 +22,7 @@ import java.util.ArrayList;
 
 public class activity_administracion_ciudadela_lista extends AppCompatActivity {
 
-    ArrayList<Invitado> vectorInvitados = new ArrayList<>();
+    ArrayList<Usuario> vectorInvitados = new ArrayList<>();
 
     String usurioLogueado;
     private FirebaseAuth firebaseAuth;
@@ -37,12 +41,25 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        //FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         //usurioLogueado = firebaseUser.getUid();
         //emailUsuarioActual = firebaseUser.getEmail();
 
         llenarListaInvitadosConJson();
         //Toast.makeText(this, "Ya mi tio", Toast.LENGTH_LONG).show();
+        listViewInvitados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View view, int position, long id) {
+
+                String correo= vectorInvitados.get(position).getCorreo();
+                Intent i= new Intent(activity_administracion_ciudadela_lista.this, Lista_Invitados_Generada.class);
+                i.putExtra(Lista_Invitados_Generada.correo ,correo );
+                startActivity(i);
+                Toast.makeText(activity_administracion_ciudadela_lista.this, correo, Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
 
     }
 
@@ -59,41 +76,20 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
                 int contador =0;
                 //Lista_Invitados invitadoTmp = dataSnapshot.getValue(Lista_Invitados.class);
                 if(dataSnapshot.getValue() != null){
-                    //Toast.makeText(Lista_Invitados.this, "d" , Toast.LENGTH_SHORT).show();
 
-                    for (DataSnapshot listaInvitadohild : dataSnapshot.getChildren()) {
-                        for (DataSnapshot invitadosChild : listaInvitadohild.getChildren()) {
-                            for (DataSnapshot child : invitadosChild.getChildren()) {
-                                Invitado invitadoTmp = new Invitado();
-                                for (DataSnapshot subChild : child.getChildren()){
 
-                                    jsonInvitados.add(subChild.getValue().toString());
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        Usuario usuarioTpm = new Usuario();
+                        //jsonInvitados.add(child.getValue().toString());
+                        usuarioTpm.setCorreo(child.getKey());
+                        Toast.makeText(activity_administracion_ciudadela_lista.this, usuarioTpm.getCorreo() , Toast.LENGTH_SHORT).show();
+                        vectorInvitados.add(usuarioTpm);
 
-                                    Log.w("json", jsonInvitados.get(contador));
-                                    contador ++;
-
-                                }
-                                invitadoTmp.setInvitadoId(jsonInvitados.get(4));
-                                invitadoTmp.setNombreInvitado(jsonInvitados.get(6));
-                                invitadoTmp.setCedulaInvitado(jsonInvitados.get(0));
-                                invitadoTmp.setPlaca(jsonInvitados.get(7));
-                                invitadoTmp.setManzana(jsonInvitados.get(5));
-                                invitadoTmp.setVilla(jsonInvitados.get(8));
-                                invitadoTmp.setIdUsuario(jsonInvitados.get(3));
-                                invitadoTmp.setEstado(Boolean.valueOf(jsonInvitados.get(2)));
-                                invitadoTmp.setEnamilUsuario(jsonInvitados.get(1));
-                                vectorInvitados.add(invitadoTmp);
-                                Log.w("cantidadDeInvitados" , "Cantidad de invitados"
-                                        + String.valueOf(vectorInvitados.size()) );
-                                jsonInvitados.clear();
-                                contador=0;
-                            }
-                        }
                     }
 
 
                     Log.w("ListaDeGarita", String.valueOf(vectorInvitados.size()));
-                    Adaptador adaptador = new Adaptador(activity_administracion_ciudadela_lista.this,
+                    AdaptadorUsuario adaptador = new AdaptadorUsuario(activity_administracion_ciudadela_lista.this,
                             vectorInvitados);
 
                     listViewInvitados.setAdapter(adaptador);
@@ -116,7 +112,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
     }
 
     public void cargarListView(){
-            for (Invitado invitado:vectorInvitados){
+            for (Usuario invitado:vectorInvitados){
                 //usuariosListaEmail.add("Lista de invitados del usuario: " + invitado.getEnamilUsuario());
                 usuariosListaEmail = new ArrayAdapter<String>(this,R.layout.item_invitado);
 
