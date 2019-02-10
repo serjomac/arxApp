@@ -25,7 +25,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
     Lista_Invitados lista_invitados;
     private DatabaseReference referencia;
     String enamil = null;
-    ArrayList<Invitado> vectorInvitados;
+    ArrayList<Invitado> vectorInvitados = new ArrayList<>();
     public static final String correo = "emailUsuarioSeleccionado";
     public Lista_Invitados_Generada(Lista_Invitados lista_invitados) {
         this.lista_invitados = lista_invitados;
@@ -48,8 +48,8 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             Bundle extras = getIntent().getExtras();
             arrayInvitados = extras.getParcelableArrayList("key");
             if(arrayInvitados==null){
-                //llenarDatosDelUsuarioDesdeAdmin();
-                //adaptador = new Adaptador(this, vectorInvitados);
+                llenarDatosDelUsuarioDesdeAdmin();
+                adaptador = new Adaptador(this, vectorInvitados);
                 Toast.makeText(Lista_Invitados_Generada.this,enamil,Toast.LENGTH_LONG).show();
             }else
             adaptador = new Adaptador(this, arrayInvitados);
