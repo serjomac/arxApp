@@ -112,7 +112,9 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
 
     public void llenarListaInvitadosConJson(){
         vectorInvitados.clear();
-        invitados.child("ListaInvitados"+usuarioLogueado).child("Invitados").addValueEventListener(new ValueEventListener() {
+        int pos = emailUsuarioLogueado.indexOf("@");
+        emailUsuarioLogueado= emailUsuarioLogueado.substring(0, pos);
+        invitados.child("Usuario:"+emailUsuarioLogueado).child("Invitados").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Vector<String> jsonInvitados = new Vector<>();
@@ -182,16 +184,25 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
         if(!TextUtils.isEmpty(tmpNombreInvitado)&
                 !TextUtils.isEmpty(tmpCedulaInvitado)&!TextUtils.isEmpty(tmpManzana)&
                 !TextUtils.isEmpty(tmpVilla)){
-            String tmpIdInvitado = invitados.push().getKey();
-            //Toast.makeText(Lista_Invitados.this,tmpIdInvitado, Toast.LENGTH_SHORT).show();
-            Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, emailUsuarioLogueado);
-            invitados.child("ListaInvitados"+usuarioLogueado).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
-            Toast.makeText(this,"Usuario Agregado con exito", Toast.LENGTH_LONG).show();
-            editNombreInvitado.setText("");
-            editCedulaInvitado.setText("");
-            editPlacaOpcional.setText("");
-            editMazana.setText("");
-            editVilla.setText("");
+
+            try {
+                String tmpIdInvitado = invitados.push().getKey();
+                //Toast.makeText(Lista_Invitados.this,tmpIdInvitado, Toast.LENGTH_SHORT).show();
+                Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, emailUsuarioLogueado);
+                int pos = emailUsuarioLogueado.indexOf("@");
+                emailUsuarioLogueado= emailUsuarioLogueado.substring(0, pos);
+                invitados.child("Usuario:"+emailUsuarioLogueado).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
+                Toast.makeText(this,"Usuario Agregado con exito", Toast.LENGTH_LONG).show();
+                editNombreInvitado.setText("");
+                editCedulaInvitado.setText("");
+                editPlacaOpcional.setText("");
+                editMazana.setText("");
+                editVilla.setText("");
+            }catch (Exception e){
+                Toast.makeText(this,e.toString(), Toast.LENGTH_LONG).show();
+
+            }
+
         }else {
             Toast.makeText(this,"Debe llenar todos los campos", Toast.LENGTH_LONG).show();
         }
