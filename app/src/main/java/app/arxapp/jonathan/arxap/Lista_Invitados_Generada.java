@@ -1,6 +1,5 @@
 package app.arxapp.jonathan.arxap;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +51,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
                 adaptador = new Adaptador(this, vectorInvitados);
                 Toast.makeText(Lista_Invitados_Generada.this,enamil,Toast.LENGTH_LONG).show();
             }else
-            adaptador = new Adaptador(this, arrayInvitados);
+                adaptador = new Adaptador(this, arrayInvitados);
 
 
             //adaptador_item_invitados = new Adaptador_Item_Invitados(this, arrayInvitados);

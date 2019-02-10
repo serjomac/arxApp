@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,15 +39,13 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
 
     public Lista_Invitados() {
         lista_invitados_generada = new Lista_Invitados_Generada(this);
+    }
 
-         }
-
-
+    ImageView botonRegresar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.lista_invitados);
 
 
@@ -92,7 +91,15 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
         });
 
 
-
+        botonRegresar = (ImageView) (findViewById(R.id.regresar));
+        botonRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Menu_Residente.class);
+                startActivityForResult(intent, 0);
+                finish();
+            }
+        });
 
 
 
@@ -184,25 +191,16 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
         if(!TextUtils.isEmpty(tmpNombreInvitado)&
                 !TextUtils.isEmpty(tmpCedulaInvitado)&!TextUtils.isEmpty(tmpManzana)&
                 !TextUtils.isEmpty(tmpVilla)){
-
-            try {
-                String tmpIdInvitado = invitados.push().getKey();
-                //Toast.makeText(Lista_Invitados.this,tmpIdInvitado, Toast.LENGTH_SHORT).show();
-                Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, emailUsuarioLogueado);
-                int pos = emailUsuarioLogueado.indexOf("@");
-                emailUsuarioLogueado= emailUsuarioLogueado.substring(0, pos);
-                invitados.child("Usuario:"+emailUsuarioLogueado).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
-                Toast.makeText(this,"Usuario Agregado con exito", Toast.LENGTH_LONG).show();
-                editNombreInvitado.setText("");
-                editCedulaInvitado.setText("");
-                editPlacaOpcional.setText("");
-                editMazana.setText("");
-                editVilla.setText("");
-            }catch (Exception e){
-                Toast.makeText(this,e.toString(), Toast.LENGTH_LONG).show();
-
-            }
-
+            String tmpIdInvitado = invitados.push().getKey();
+            //Toast.makeText(Lista_Invitados.this,tmpIdInvitado, Toast.LENGTH_SHORT).show();
+            Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, emailUsuarioLogueado);
+            invitados.child("ListaInvitados"+usuarioLogueado).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
+            Toast.makeText(this,"Usuario Agregado con exito", Toast.LENGTH_LONG).show();
+            editNombreInvitado.setText("");
+            editCedulaInvitado.setText("");
+            editPlacaOpcional.setText("");
+            editMazana.setText("");
+            editVilla.setText("");
         }else {
             Toast.makeText(this,"Debe llenar todos los campos", Toast.LENGTH_LONG).show();
         }

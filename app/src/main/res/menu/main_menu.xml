@@ -5,9 +5,6 @@
         android:title="@string/perfil"
         android:icon="@drawable/logo"/>
 
-
-
-
     <item android:id="@+id/politicas"
         android:title="@string/politicas"
         android:icon="@drawable/logo"/>

@@ -2,6 +2,7 @@ package app.arxapp.jonathan.arxap;
 
 public class Usuario {
 
+
     private String nombre;
     private String correo;
     private String idUduario;
@@ -19,9 +20,9 @@ public class Usuario {
         this.villa = villa;
         this.clave = clave;
     }
-public  Usuario(){
+    public  Usuario(){
 
-}
+    }
     public String getNombre() {
         return nombre;
     }

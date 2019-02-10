@@ -22,8 +22,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/listaInvitados"
         android:textColor="#000"
-        android:textSize="25dp"
-        tools:text="Lista De Usuarios" />
+        android:textSize="25dp" />
 
 
 </RelativeLayout>

@@ -5,6 +5,21 @@
     android:layout_height="match_parent"
     tools:context=".perfilResidente">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#222222">
+
+        <ImageView
+            android:id="@+id/regresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/leftarrow" />
+
+    </android.support.v7.widget.Toolbar>
+
     <TextView
         android:id="@+id/lblDesarrollo"
         android:layout_width="wrap_content"

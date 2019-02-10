@@ -4,10 +4,11 @@
     package="app.arxapp.jonathan.arxap">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
-        android:name="app.arxapp.jonathan.arxap.arxappApplication"
+        android:name=".arxappApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,67 +16,58 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <activity android:name="com.facebook.CustomTabActivity" android:exported="true"> <intent-filter> <action android:name="android.intent.action.VIEW" /> <category android:name="android.intent.category.DEFAULT" /> <category android:name="android.intent.category.BROWSABLE" /> <data android:scheme="@string/fb_login_protocol_scheme" /> </intent-filter> </activity>
-        <activity android:name="com.facebook.FacebookActivity" android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:label="@string/app_name" />
-
-        <activity android:name="app.arxapp.jonathan.arxap.Login" >
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity android:name=".Login">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:theme="@style/Theme.AppCompat.Light"
-            android:name="app.arxapp.jonathan.arxap.Menu_Residente"
-            android:screenOrientation="portrait">
-        </activity>
-
-
-
+            android:name=".Menu_Residente"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name="app.arxapp.jonathan.arxap.Lista_Invitados"
-
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".Lista_Invitados"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="app.arxapp.jonathan.arxap.activity_administracion_ciudadela"
-
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".activity_administracion_ciudadela"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="app.arxapp.jonathan.arxap.perfilResidente"
-
-            android:screenOrientation="portrait">
-        </activity>
-
-
+            android:name=".perfilResidente"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="app.arxapp.jonathan.arxap.Lista_Invitados_Generada"
-
-            android:screenOrientation="portrait">
-        </activity>
-
-
-
+            android:name=".Lista_Invitados_Generada"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="app.arxapp.jonathan.arxap.activity_administracion_ciudadela_lista"
-
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".activity_administracion_ciudadela_lista"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="app.arxapp.jonathan.arxap.Activity_Politicas"
-
-            android:screenOrientation="portrait">
-        </activity>
-
-
+            android:name=".Activity_Politicas"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Noticias" />
+        <activity android:name=".Reserva_club" />
+        <activity android:name=".PagoAlicuota"></activity>
     </application>
 
 </manifest>

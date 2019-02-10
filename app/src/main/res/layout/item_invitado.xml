@@ -1,96 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="80dp"
-    android:background="@drawable/borde_item_invitado_residente"
-    >
+    android:background="@drawable/borde_item_invitado_residente">
 
     <TextView
         android:id="@+id/txtNombreInvitadoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="48dp"
+        android:text="Nombre Invitado"
+        android:textColor="#252525"
         android:textSize="20dp"
-        android:layout_marginLeft="5dp"
-        android:textColor="#252525"/>
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"/>
 
-    <RelativeLayout
+
+    <TextView
+        android:id="@+id/txtEstadoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:textColor="#252525">
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="340dp"
+        android:text="Estado"
+        android:textColor="#252525"
+        android:visibility="invisible" />
 
-        <TextView
-            android:id="@+id/txtCedulaInvitadoItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="48dp"
-            android:textColor="#252525"/>
-
-        <TextView
-            android:id="@+id/txtPlacaItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginTop="25dp"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="48dp"
-            android:textColor="#252525"/>
-    </RelativeLayout>
-
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/datosPersonales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNombreInvitadoItem"
+        app:srcCompat="@drawable/datospersonales"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/txtCedulaInvitadoItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cedula"
+        android:textColor="#252525"
         android:layout_marginLeft="40dp"
-        android:textColor="#252525">
+        android:layout_marginTop="32dp" />
 
-        <TextView
-            android:id="@+id/txtManzanaItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="48dp"
-            android:textColor="#252525"/>
-
-        <TextView
-            android:id="@+id/txtVillaItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginTop="25dp"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="48dp"
-            android:textColor="#252525"/>
-    </RelativeLayout>
-
-
-
-
-
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/placa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp">
+        android:layout_below="@+id/txtNombreInvitadoItem"
+        android:layout_marginLeft="170dp"
+        app:srcCompat="@drawable/placa" />
 
-        <TextView
-            android:id="@+id/txtEstadoItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:text="TextView"
-            android:textColor="#252525"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="48dp" />
+    <TextView
+        android:id="@+id/txtPlacaItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="placa"
+        android:textColor="#252525"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="32dp"/>
+
+    <ImageView
+        android:id="@+id/ubicacion"
+        android:layout_width="22dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/txtNombreInvitadoItem"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/ubicacion" />
+
+    <TextView
+        android:id="@+id/txtManzanaItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manzana"
+        android:textColor="#252525"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/txtVillaItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="villa"
+        android:textColor="#252525"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="32dp"/>
 
 
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

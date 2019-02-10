@@ -60,5 +60,4 @@ public class activity_administracion_ciudadela extends AppCompatActivity {
 
 
 
-
 }

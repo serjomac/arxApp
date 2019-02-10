@@ -94,7 +94,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
 
                     listViewInvitados.setAdapter(adaptador);
                     //Intent intentItem = new Intent(activity_administracion_ciudadela_lista.this,
-                            //Lista_Invitados_Generada.class);
+                    //Lista_Invitados_Generada.class);
                     //intentItem.putParcelableArrayListExtra("key", vectorInvitados);
                     //startActivityForResult(intentItem, 0);
 
@@ -112,12 +112,12 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
     }
 
     public void cargarListView(){
-            for (Usuario invitado:vectorInvitados){
-                //usuariosListaEmail.add("Lista de invitados del usuario: " + invitado.getEnamilUsuario());
-                usuariosListaEmail = new ArrayAdapter<String>(this,R.layout.item_invitado);
-
-            }
-
+        for (Usuario invitado:vectorInvitados){
+            //usuariosListaEmail.add("Lista de invitados del usuario: " + invitado.getEnamilUsuario());
+            usuariosListaEmail = new ArrayAdapter<String>(this,R.layout.item_invitado);
 
         }
+
+
+    }
 }
