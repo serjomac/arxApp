@@ -85,7 +85,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(esAdministracion()){
-                    Log.w("validacionGarita", "si es garita");
+                    //Log.w("validacionGarita", "si es garita");
                     Intent intentAdministracion = new Intent(Login.this, activity_administracion_ciudadela_lista.class);
                     startActivity(intentAdministracion);
                 }else {
@@ -102,7 +102,7 @@ public class Login extends AppCompatActivity {
         loginButtonFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Log.w(TAG,"Facebook Login Correcto token: " + loginResult.getAccessToken().getApplicationId());
+                //Log.w(TAG,"Facebook Login Correcto token: " + loginResult.getAccessToken().getApplicationId());
                 signInFabookFirebase(loginResult.getAccessToken());
                 goHome();
             }
@@ -201,12 +201,12 @@ public class Login extends AppCompatActivity {
         boolean estado = true;
         if (editLoginCorreo.getText().toString().equals("admin@gmail.com") &&
                 editLoginClave.getText().toString().equals("admin1234")){
-            Log.w("validacionGarita", "si es garita");
+           // Log.w("validacionGarita", "si es garita");
             //Log.w("validacionGarita", firebaseAuth.toString());
             return estado;
         }else {
             estado = false;
-            Log.w("validacionGarita", "----" +  editLoginCorreo.getText().toString());
+            //Log.w("validacionGarita", "----" +  editLoginCorreo.getText().toString());
             return estado;
         }
 

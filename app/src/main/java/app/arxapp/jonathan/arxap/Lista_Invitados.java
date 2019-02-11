@@ -120,8 +120,9 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
     public void llenarListaInvitadosConJson(){
         vectorInvitados.clear();
         int pos = emailUsuarioLogueado.indexOf("@");
-        emailUsuarioLogueado= emailUsuarioLogueado.substring(0, pos);
-        invitados.child("Usuario:"+emailUsuarioLogueado).child("Invitados").addValueEventListener(new ValueEventListener() {
+        String enamilLog = "";
+        enamilLog= emailUsuarioLogueado.substring(0, pos);
+        invitados.child("Usuario:"+enamilLog).child("Invitados").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Vector<String> jsonInvitados = new Vector<>();
@@ -150,7 +151,12 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
                         invitadoTmp.setEstado(Boolean.valueOf(jsonInvitados.get(2)));
                         invitadoTmp.setEnamilUsuario(jsonInvitados.get(1));
 
-                        vectorInvitados.add(invitadoTmp);
+                        if(!invitadoTmp.isEstado()){
+                            vectorInvitados.add(invitadoTmp);
+                        }else {
+                            Log.w("porfalsoDesdeResidente", "invitado ya ingreso");
+                        }
+
                         jsonInvitados.clear();
                         contador=0;
                     }

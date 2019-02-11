@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class activity_administracion_ciudadela_lista extends AppCompatActivity {
 
     ArrayList<Usuario> vectorInvitados = new ArrayList<>();
-
+    ArrayList<String > estadosTemprales = new ArrayList<>();
     String usurioLogueado;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference invitados;
@@ -55,7 +55,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
                 Intent i= new Intent(activity_administracion_ciudadela_lista.this, Lista_Invitados_Generada.class);
                 i.putExtra(Lista_Invitados_Generada.correo ,correo );
                 startActivity(i);
-                Toast.makeText(activity_administracion_ciudadela_lista.this, correo, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(activity_administracion_ciudadela_lista.this, correo, Toast.LENGTH_SHORT).show();
 
 
             }
@@ -82,10 +82,36 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
                         Usuario usuarioTpm = new Usuario();
                         //jsonInvitados.add(child.getValue().toString());
                         usuarioTpm.setCorreo(child.getKey());
-                        Toast.makeText(activity_administracion_ciudadela_lista.this, usuarioTpm.getCorreo() , Toast.LENGTH_SHORT).show();
-                        vectorInvitados.add(usuarioTpm);
+                        //Toast.makeText(activity_administracion_ciudadela_lista.this, usuarioTpm.getCorreo(), Toast.LENGTH_SHORT).show();
+                        long contadorDeInvitados = child.child("Invitados").getChildrenCount();
+                        //Toast.makeText(activity_administracion_ciudadela_lista.this, String.valueOf(contadorDeInvitados),
+                         //       Toast.LENGTH_LONG).show();
 
+
+                        for (DataSnapshot child2 : child.getChildren()) {
+
+                            for (DataSnapshot child3 : child2.getChildren()) {
+
+
+                                String estadoTempral = String.valueOf(child3.child("estado").getValue());
+
+                                if (estadoTempral.equals("true")) {
+                                    estadosTemprales.add(estadoTempral);
+                                }
+
+                            }
+
+                        }
+
+                        if (estadosTemprales.size() < contadorDeInvitados) {
+                            vectorInvitados.add(usuarioTpm);
+                        }else {
+
+                        }
+                        estadosTemprales.clear();
                     }
+
+
 
 
                     Log.w("ListaDeGarita", String.valueOf(vectorInvitados.size()));
@@ -93,6 +119,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
                             vectorInvitados);
 
                     listViewInvitados.setAdapter(adaptador);
+
                     //Intent intentItem = new Intent(activity_administracion_ciudadela_lista.this,
                     //Lista_Invitados_Generada.class);
                     //intentItem.putParcelableArrayListExtra("key", vectorInvitados);

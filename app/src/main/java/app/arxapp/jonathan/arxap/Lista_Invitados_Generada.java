@@ -1,9 +1,15 @@
 package app.arxapp.jonathan.arxap;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -49,9 +55,20 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             if(arrayInvitados==null){
                 llenarDatosDelUsuarioDesdeAdmin();
                 adaptador = new Adaptador(this, vectorInvitados);
-                Toast.makeText(Lista_Invitados_Generada.this,enamil,Toast.LENGTH_LONG).show();
-            }else
-                adaptador = new Adaptador(this, arrayInvitados);
+                darEventoAdmin();
+                //Toast.makeText(Lista_Invitados_Generada.this,enamil,Toast.LENGTH_LONG).show();
+            }else{
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adaptador = new Adaptador(Lista_Invitados_Generada.this, arrayInvitados);
+                    }
+                });
+
+
+            }
+
+
 
 
             //adaptador_item_invitados = new Adaptador_Item_Invitados(this, arrayInvitados);
@@ -81,6 +98,68 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
         }
 
 
+
+    }
+    public void darEventoAdmin(){
+        listViewInvitados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View view, int position, long id) {
+
+                String invitado= vectorInvitados.get(position).getInvitadoId();
+                dialog(invitado);
+
+            }
+        });
+    }
+    private  void dialog(final  String invitado){
+        final Dialog dialog= new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialogo_message);
+        Button btnAcep= dialog.findViewById(R.id.btnFavor);
+        Button btnCan= dialog.findViewById(R.id.btnCancelar);
+
+        btnAcep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+                enviarMensaje(invitado);
+
+                try {
+                    referencia.child(enamil).child("Invitados").child(invitado).child("estado").setValue("true");
+                    Vibrator vibrar = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+                    vibrar.vibrate(1000);
+
+                    Runnable r = new Runnable() {
+                        @Override
+                        public void run() {
+                            adaptador.notifyDataSetChanged();
+                        }
+                    };
+
+                    runOnUiThread(r);
+
+
+
+                } catch (Exception e){
+                    Log.w("estadoFallido", e);
+                }
+
+
+
+            }
+        });
+        btnCan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+    }
+    public void enviarMensaje(String invitado){
+        //Toast.makeText(Lista_Invitados_Generada.this, invitado, Toast.LENGTH_SHORT).show();
 
     }
     public void llenarDatosDelUsuarioDesdeAdmin(){
@@ -115,7 +194,12 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
                         invitadoTmp.setEstado(Boolean.valueOf(jsonInvitados.get(2)));
                         invitadoTmp.setEnamilUsuario(jsonInvitados.get(1));
 
-                        vectorInvitados.add(invitadoTmp);
+                        if(!invitadoTmp.isEstado()){
+                            vectorInvitados.add(invitadoTmp);
+                        }else {
+                            Log.w("porfalso", "El estado es true entonces no lo agrega");
+                        }
+
                         jsonInvitados.clear();
                         contador=0;
                     }
