@@ -31,6 +31,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
     ArrayList<String> jsonInvitados = new ArrayList<>();
     ArrayAdapter<String> usuariosListaEmail;
     ListView listViewInvitados;
+    AdaptadorUsuario adaptador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,7 +41,8 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
         invitados = FirebaseDatabase.getInstance().getReference("arxappDataBase");
 
         firebaseAuth = FirebaseAuth.getInstance();
-
+         adaptador = new AdaptadorUsuario(activity_administracion_ciudadela_lista.this,
+                vectorInvitados);
         //FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         //usurioLogueado = firebaseUser.getUid();
         //emailUsuarioActual = firebaseUser.getEmail();
@@ -65,13 +67,14 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
 
 
     public void llenarListaInvitadosConJson(){
-        vectorInvitados.clear();
+
 
 
         invitados.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                vectorInvitados.clear();
+                adaptador.notifyDataSetChanged();
 
                 int contador =0;
                 //Lista_Invitados invitadoTmp = dataSnapshot.getValue(Lista_Invitados.class);
@@ -115,8 +118,8 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
 
 
                     Log.w("ListaDeGarita", String.valueOf(vectorInvitados.size()));
-                    AdaptadorUsuario adaptador = new AdaptadorUsuario(activity_administracion_ciudadela_lista.this,
-                            vectorInvitados);
+
+
 
                     listViewInvitados.setAdapter(adaptador);
 

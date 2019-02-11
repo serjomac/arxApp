@@ -55,6 +55,8 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             if(arrayInvitados==null){
                 llenarDatosDelUsuarioDesdeAdmin();
                 adaptador = new Adaptador(this, vectorInvitados);
+                //Toast.makeText(Lista_Invitados_Generada.this,"instance",Toast.LENGTH_LONG).show();
+
                 darEventoAdmin();
                 //Toast.makeText(Lista_Invitados_Generada.this,enamil,Toast.LENGTH_LONG).show();
             }else{
@@ -106,12 +108,12 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             public void onItemClick(AdapterView<?> lista, View view, int position, long id) {
 
                 String invitado= vectorInvitados.get(position).getInvitadoId();
-                dialog(invitado);
+                dialog(invitado, position);
 
             }
         });
     }
-    private  void dialog(final  String invitado){
+    private  void dialog(final  String invitado, final int posicion){
         final Dialog dialog= new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialogo_message);
@@ -123,21 +125,23 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             public void onClick(View v) {
 
                 dialog.dismiss();
-                enviarMensaje(invitado);
+          //      enviarMensaje(invitado);
 
                 try {
                     referencia.child(enamil).child("Invitados").child(invitado).child("estado").setValue("true");
                     Vibrator vibrar = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-                    vibrar.vibrate(1000);
-
-                    Runnable r = new Runnable() {
-                        @Override
+                    vibrar.vibrate(500);
+                    //vectorInvitados.remove(posicion);
+                    Runnable mRunnable = new Runnable() {
                         public void run() {
-                            adaptador.notifyDataSetChanged();
+
+//                            adaptador.notifyDataSetChanged();
+
                         }
                     };
+                    runOnUiThread(mRunnable);
 
-                    runOnUiThread(r);
+
 
 
 
@@ -169,10 +173,12 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Vector<String> jsonInvitados = new Vector<>();
-
+                vectorInvitados.clear();
+                adaptador.notifyDataSetChanged();
                 int contador =0;
                 //Lista_Invitados invitadoTmp = dataSnapshot.getValue(Lista_Invitados.class);
                 if(dataSnapshot.getValue() != null){
+                    //Toast.makeText(Lista_Invitados_Generada.this,"generando lista",Toast.LENGTH_LONG).show();
                     //Toast.makeText(Lista_Invitados.this, "d" , Toast.LENGTH_SHORT).show();
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
                         Invitado invitadoTmp = new Invitado();
@@ -196,6 +202,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
 
                         if(!invitadoTmp.isEstado()){
                             vectorInvitados.add(invitadoTmp);
+
                         }else {
                             Log.w("porfalso", "El estado es true entonces no lo agrega");
                         }
