@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="80dp"
+    android:layout_height="70dp"
     android:background="@drawable/borde_item_invitado_residente">
 
     <TextView
@@ -14,16 +14,16 @@
         android:layout_height="wrap_content"
         android:text="Nombre Invitado"
         android:textColor="#252525"
-        android:textSize="20dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:padding="3dp"
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/txtEstadoItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="340dp"
@@ -33,25 +33,28 @@
 
     <ImageView
         android:id="@+id/datosPersonales"
-        android:layout_width="wrap_content"
+        android:layout_width="22dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtNombreInvitadoItem"
-        app:srcCompat="@drawable/datospersonales"
-        android:layout_marginLeft="5dp"/>
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:gravity="bottom"
+        app:srcCompat="@drawable/datospersonales" />
 
     <TextView
         android:id="@+id/txtCedulaInvitadoItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:text="Cedula"
         android:textColor="#252525"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/txtNombreInvitadoItem"/>
 
     <ImageView
         android:id="@+id/placa"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/txtNombreInvitadoItem"
         android:layout_marginLeft="170dp"
         app:srcCompat="@drawable/placa" />
@@ -59,38 +62,42 @@
     <TextView
         android:id="@+id/txtPlacaItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:text="placa"
         android:textColor="#252525"
-        android:layout_marginLeft="205dp"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/txtNombreInvitadoItem"/>
 
     <ImageView
         android:id="@+id/ubicacion"
         android:layout_width="22dp"
-        android:layout_height="21dp"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/txtNombreInvitadoItem"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
         app:srcCompat="@drawable/ubicacion" />
 
     <TextView
         android:id="@+id/txtManzanaItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="310dp"
         android:text="Manzana"
         android:textColor="#252525"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="7dp"
+        android:layout_below="@+id/txtNombreInvitadoItem"/>
 
     <TextView
         android:id="@+id/txtVillaItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:text="villa"
         android:textColor="#252525"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="7dp"
+        android:layout_below="@+id/txtNombreInvitadoItem"/>
 
 
 </RelativeLayout>

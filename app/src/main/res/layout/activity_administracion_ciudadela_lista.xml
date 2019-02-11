@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f4f4f4ff"
     tools:context=".activity_administracion_ciudadela_lista">
 
-
-    <ListView
-        android:id="@+id/lvUsuariosLista"
-        android:layout_width="match_parent"
-        android:layout_height="502dp"
-        android:layout_alignParentBottom="true" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="@string/listaInvitados"
+        android:text="@string/listaResidentes"
         android:textColor="#000"
         android:textSize="25dp" />
+
+    <ListView
+        android:id="@+id/lvUsuariosLista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textView3" />
 
 
 </RelativeLayout>

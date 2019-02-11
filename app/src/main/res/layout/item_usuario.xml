@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="@drawable/borde_item_invitado_residente"
-    >
+    android:background="@drawable/borde_item_invitado_residente">
+
+    <ImageView
+        android:id="@+id/datosPersonales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNombreInvitadoItem"
+        app:srcCompat="@drawable/usuario"
+        android:layout_margin="12dp"
+        android:layout_gravity="center_vertical"/>
+
 
     <TextView
         android:id="@+id/txtCorreoUsuarioItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:text="TextView"
         android:textColor="#252525"
         android:textSize="20dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="48dp" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:textColor="#252525"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:textColor="#252525"/>
+        android:layout_margin="10dp"
+        android:layout_gravity="center_vertical" />
 
 
 
 
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"/>
 </LinearLayout>
