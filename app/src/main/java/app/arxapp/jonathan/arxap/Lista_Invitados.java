@@ -38,7 +38,7 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
     private FirebaseAuth firebaseAuth;
 
     public Lista_Invitados() {
-        lista_invitados_generada = new Lista_Invitados_Generada(this);
+
     }
 
     ImageView botonRegresar;
@@ -187,7 +187,9 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
 
 
     public void registrarInvitado() {
-
+        int pos = emailUsuarioLogueado.indexOf("@");
+        String enamilLog = "";
+        enamilLog= emailUsuarioLogueado.substring(0, pos);
         String tmpNombreInvitado = editNombreInvitado.getText().toString();
         String tmpCedulaInvitado = editCedulaInvitado.getText().toString();
         String tmpPlaca = editPlacaOpcional.getText().toString();
@@ -199,8 +201,8 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
                 !TextUtils.isEmpty(tmpVilla)){
             String tmpIdInvitado = invitados.push().getKey();
             //Toast.makeText(Lista_Invitados.this,tmpIdInvitado, Toast.LENGTH_SHORT).show();
-            Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, emailUsuarioLogueado);
-            invitados.child("ListaInvitados"+usuarioLogueado).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
+            Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, enamilLog);
+            invitados.child("Usuario:"+enamilLog).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
             Toast.makeText(this,"Usuario Agregado con exito", Toast.LENGTH_LONG).show();
             editNombreInvitado.setText("");
             editCedulaInvitado.setText("");

@@ -49,12 +49,14 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
         listViewInvitados = findViewById(R.id.lvInvitados);
         referencia = FirebaseDatabase.getInstance().getReference("arxappDataBase");
 
+
         try {
             Bundle extras = getIntent().getExtras();
             arrayInvitados = extras.getParcelableArrayList("key");
             if(arrayInvitados==null){
                 llenarDatosDelUsuarioDesdeAdmin();
                 adaptador = new Adaptador(this, vectorInvitados);
+                listViewInvitados.setAdapter(adaptador);
                 //Toast.makeText(Lista_Invitados_Generada.this,"instance",Toast.LENGTH_LONG).show();
 
                 darEventoAdmin();
@@ -64,6 +66,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
                     @Override
                     public void run() {
                         adaptador = new Adaptador(Lista_Invitados_Generada.this, arrayInvitados);
+                        listViewInvitados.setAdapter(adaptador);
                     }
                 });
 
@@ -88,7 +91,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
 
 
 
-            listViewInvitados.setAdapter(adaptador);
+
 
 
 
@@ -130,7 +133,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
                 try {
                     referencia.child(enamil).child("Invitados").child(invitado).child("estado").setValue("true");
                     Vibrator vibrar = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-                    vibrar.vibrate(500);
+                    vibrar.vibrate(100);
                     //vectorInvitados.remove(posicion);
                     Runnable mRunnable = new Runnable() {
                         public void run() {

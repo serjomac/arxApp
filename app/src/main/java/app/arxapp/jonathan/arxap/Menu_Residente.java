@@ -43,7 +43,7 @@ public class Menu_Residente extends AppCompatActivity {
                 //Toast.makeText(Menu_Residente.this,tokenUsuarioLoggeado, Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(v.getContext(), Lista_Invitados.class);
                 startActivityForResult(intent1, 0);
-                finish();
+
             }
         });
 
@@ -53,7 +53,7 @@ public class Menu_Residente extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent2 = new Intent(v.getContext(), Noticias.class);
                 startActivityForResult(intent2, 0);
-                finish();
+
             }
         });
 
@@ -63,7 +63,7 @@ public class Menu_Residente extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent3 = new Intent(v.getContext(), Reserva_club.class);
                 startActivityForResult(intent3, 0);
-                finish();
+
             }
         });
 
@@ -73,7 +73,7 @@ public class Menu_Residente extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent4 = new Intent(v.getContext(), Reserva_club.class);
                 startActivityForResult(intent4, 0);
-                finish();
+
             }
         });
     }
