@@ -43,6 +43,8 @@ public class Login extends AppCompatActivity {
     private TextView btnRegistro;
     private String correo="";
     private String clave = "" ;
+    Intent intent;
+    Intent intentAdministracion;
     private DatabaseReference referenceUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 if(esAdministracion()){
                     //Log.w("validacionGarita", "si es garita");
-                    Intent intentAdministracion = new Intent(Login.this, activity_administracion_ciudadela_lista.class);
+                    intentAdministracion = new Intent(Login.this, activity_administracion_ciudadela_lista.class);
                     startActivity(intentAdministracion);
                 }else {
                     iniciarSesion();
@@ -142,11 +144,11 @@ public class Login extends AppCompatActivity {
         try {
             int pos = correo.indexOf("@");
             String usuairo = correo.substring(0, pos);
-            Intent intent = new Intent(this, Menu_Residente.class);
+            intent = new Intent(this, Menu_Residente.class);
             intent.putExtra(Menu_Residente.usuarioLoggeado, usuairo);
             startActivity(intent);
         } catch (Exception e){
-            Intent intent = new Intent(this, Menu_Residente.class);
+            intent = new Intent(this, Menu_Residente.class);
             FirebaseUser fireBaseUser = firebaseAuth.getCurrentUser();
             String usuarioLogeado = fireBaseUser.getEmail();
             int pos = usuarioLogeado.indexOf("@");

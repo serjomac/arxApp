@@ -22,26 +22,25 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import static android.content.Context.VIBRATOR_SERVICE;
+
 public class Lista_Invitados_Generada extends AppCompatActivity{
 
     ArrayList<Invitado> arrayInvitados = new ArrayList<>();
     ListView listViewInvitados;
     Adaptador adaptador;
+    Adaptador adaptador2;
     Lista_Invitados lista_invitados;
     private DatabaseReference referencia;
     String enamil = null;
     ArrayList<Invitado> vectorInvitados = new ArrayList<>();
     public static final String correo = "emailUsuarioSeleccionado";
-    public Lista_Invitados_Generada(Lista_Invitados lista_invitados) {
-        this.lista_invitados = lista_invitados;
-    }
 
-    public Lista_Invitados_Generada() {
 
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_invitados_generada);
@@ -54,6 +53,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             Bundle extras = getIntent().getExtras();
             arrayInvitados = extras.getParcelableArrayList("key");
             if(arrayInvitados==null){
+                //adaptador.notifyDataSetChanged();
                 llenarDatosDelUsuarioDesdeAdmin();
                 adaptador = new Adaptador(this, vectorInvitados);
                 listViewInvitados.setAdapter(adaptador);
@@ -62,13 +62,10 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
                 darEventoAdmin();
                 //Toast.makeText(Lista_Invitados_Generada.this,enamil,Toast.LENGTH_LONG).show();
             }else{
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        adaptador = new Adaptador(Lista_Invitados_Generada.this, arrayInvitados);
-                        listViewInvitados.setAdapter(adaptador);
-                    }
-                });
+                        //adaptador.notifyDataSetChanged();
+                        adaptador2 = new Adaptador(Lista_Invitados_Generada.this, arrayInvitados);
+                        listViewInvitados.setAdapter(adaptador2);
+
 
 
             }
@@ -127,25 +124,16 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                dialog.dismiss();
-          //      enviarMensaje(invitado);
 
+          //      enviarMensaje(invitado);
+                dialog.dismiss();
                 try {
                     referencia.child(enamil).child("Invitados").child(invitado).child("estado").setValue("true");
+
                     Vibrator vibrar = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-                    vibrar.vibrate(100);
+                    vibrar.vibrate(1000);
+
                     //vectorInvitados.remove(posicion);
-                    Runnable mRunnable = new Runnable() {
-                        public void run() {
-
-//                            adaptador.notifyDataSetChanged();
-
-                        }
-                    };
-                    runOnUiThread(mRunnable);
-
-
-
 
 
                 } catch (Exception e){
@@ -169,6 +157,9 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
         //Toast.makeText(Lista_Invitados_Generada.this, invitado, Toast.LENGTH_SHORT).show();
 
     }
+
+
+
     public void llenarDatosDelUsuarioDesdeAdmin(){
 
 
@@ -178,6 +169,7 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
                 Vector<String> jsonInvitados = new Vector<>();
                 vectorInvitados.clear();
                 adaptador.notifyDataSetChanged();
+                //adaptador2.notifyDataSetChanged();
                 int contador =0;
                 //Lista_Invitados invitadoTmp = dataSnapshot.getValue(Lista_Invitados.class);
                 if(dataSnapshot.getValue() != null){
@@ -225,4 +217,6 @@ public class Lista_Invitados_Generada extends AppCompatActivity{
             }
         });
     }
+
+
 }

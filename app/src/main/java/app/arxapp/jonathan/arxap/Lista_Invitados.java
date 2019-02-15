@@ -24,8 +24,9 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 public class Lista_Invitados extends AppCompatActivity implements Serializable {
-    Lista_Invitados_Generada lista_invitados_generada;
+
     ArrayList<Invitado> vectorInvitados;
+    ArrayList<Invitado> vectorInvitadosGenral;
     //ListView listViewInvitados;
     //Adaptador_Item_Invitados adaptador_item_invitados;
     //String invitadoPorSesion;
@@ -36,10 +37,9 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
     EditText editNombreInvitado, editCedulaInvitado, editPlacaOpcional, editMazana, editVilla, editEmailInvitado;
     Button buttonAgregarInvitado, verListaInvitados;
     private FirebaseAuth firebaseAuth;
+    Intent intentItem;
+    Vector<String> jsonInvitados = new Vector<>();
 
-    public Lista_Invitados() {
-
-    }
 
     ImageView botonRegresar;
 
@@ -48,9 +48,10 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_invitados);
 
+        ;
 
-        vectorInvitados = new ArrayList<>();
-        vectorInvitados.clear();
+        //vectorInvitadosGenral = new ArrayList<>();
+        //vectorInvitados.clear();
 
         editNombreInvitado = (EditText) findViewById(R.id.txtNombreInvitado);
         editCedulaInvitado = (EditText) findViewById(R.id.txtCedulaInvitado);
@@ -77,10 +78,16 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
 
 
         verListaInvitados = (Button) findViewById(R.id.btnVerLista);
+
         verListaInvitados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vectorInvitadosGenral = new ArrayList<>();
+                vectorInvitadosGenral.clear();
                 llenarListaInvitadosConJson();
+                Log.w("MesajeDebug", String.valueOf(vectorInvitadosGenral.size()));
+                
+
                 //listViewInvitados = (ListView)findViewById(R.id.lvInvitados);
                 //adaptador_item_invitados = new Adaptador_Item_Invitados(Lista_Invitados.this, vectorInvitados);
                 //listViewInvitados.setAdapter(adaptador_item_invitados);
@@ -118,14 +125,24 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
     }
 
     public void llenarListaInvitadosConJson(){
+        vectorInvitados = new ArrayList<>();
         vectorInvitados.clear();
+
         int pos = emailUsuarioLogueado.indexOf("@");
+        int pos2 = emailUsuarioLogueado.indexOf(".");
         String enamilLog = "";
+        String enamilLog2 = "";
         enamilLog= emailUsuarioLogueado.substring(0, pos);
+        enamilLog2= emailUsuarioLogueado.substring(0, pos2);
+
+        if(enamilLog2!= null){
+            enamilLog = enamilLog2;
+        }
+
         invitados.child("Usuario:"+enamilLog).child("Invitados").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Vector<String> jsonInvitados = new Vector<>();
+
 
                 int contador =0;
                 //Lista_Invitados invitadoTmp = dataSnapshot.getValue(Lista_Invitados.class);
@@ -160,10 +177,11 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
                         jsonInvitados.clear();
                         contador=0;
                     }
-                    Log.w("MesajeDebug", String.valueOf(vectorInvitados.size()));
-                    Intent intentItem = new Intent(Lista_Invitados.this, Lista_Invitados_Generada.class);
-                    intentItem.putParcelableArrayListExtra("key", vectorInvitados);
-                    startActivityForResult(intentItem, 0);
+
+                    vectorInvitadosGenral = vectorInvitados;
+
+
+
 
                 }
 
@@ -174,6 +192,7 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
 
             }
         });
+
     }
 
     public ArrayList<Invitado> getVectorInvitados() {
@@ -187,9 +206,19 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
 
 
     public void registrarInvitado() {
+        vectorInvitados = new ArrayList<>();
+        vectorInvitados.clear();
         int pos = emailUsuarioLogueado.indexOf("@");
+        int pos2 = emailUsuarioLogueado.indexOf(".");
         String enamilLog = "";
+        String enamilLog2 = "";
         enamilLog= emailUsuarioLogueado.substring(0, pos);
+        enamilLog2= emailUsuarioLogueado.substring(0, pos2);
+
+        if(enamilLog2!= null){
+            enamilLog = enamilLog2;
+        }
+        //Log.w("holamundo123", enamilLog);
         String tmpNombreInvitado = editNombreInvitado.getText().toString();
         String tmpCedulaInvitado = editCedulaInvitado.getText().toString();
         String tmpPlaca = editPlacaOpcional.getText().toString();
@@ -201,8 +230,11 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
                 !TextUtils.isEmpty(tmpVilla)){
             String tmpIdInvitado = invitados.push().getKey();
             //Toast.makeText(Lista_Invitados.this,tmpIdInvitado, Toast.LENGTH_SHORT).show();
+            //Log.w("holamundo123", enamilLog);
             Invitado tmpInvitado = new Invitado(tmpIdInvitado,tmpNombreInvitado, tmpCedulaInvitado,tmpPlaca,tmpManzana,tmpVilla, usuarioLogueado, false, enamilLog);
+
             invitados.child("Usuario:"+enamilLog).child("Invitados").child(tmpIdInvitado).setValue(tmpInvitado);
+            Log.w("holamundo123", tmpIdInvitado);
             Toast.makeText(this,"Usuario Agregado con exito", Toast.LENGTH_LONG).show();
             editNombreInvitado.setText("");
             editCedulaInvitado.setText("");
@@ -212,6 +244,8 @@ public class Lista_Invitados extends AppCompatActivity implements Serializable {
         }else {
             Toast.makeText(this,"Debe llenar todos los campos", Toast.LENGTH_LONG).show();
         }
+
+
     }
 
 

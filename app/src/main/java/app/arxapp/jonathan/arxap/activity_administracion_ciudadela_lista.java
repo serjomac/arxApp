@@ -31,6 +31,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
     ArrayList<String> jsonInvitados = new ArrayList<>();
     ArrayAdapter<String> usuariosListaEmail;
     ListView listViewInvitados;
+    Intent i;
     AdaptadorUsuario adaptador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class activity_administracion_ciudadela_lista extends AppCompatActivity {
             public void onItemClick(AdapterView<?> lista, View view, int position, long id) {
 
                 String correo= vectorInvitados.get(position).getCorreo();
-                Intent i= new Intent(activity_administracion_ciudadela_lista.this, Lista_Invitados_Generada.class);
+                i= new Intent(activity_administracion_ciudadela_lista.this, Lista_Invitados_Generada.class);
                 i.putExtra(Lista_Invitados_Generada.correo ,correo );
                 startActivity(i);
                 //Toast.makeText(activity_administracion_ciudadela_lista.this, correo, Toast.LENGTH_SHORT).show();
